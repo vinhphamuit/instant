@@ -1,10 +1,10 @@
 input#message {
     background:none;
     border:none;
-    border-bottom: 1px solid #4C4C4C;
+    border-bottom: 1px solid #d1d1d1;
     outline:none;
     box-shadow:none;
-    color: white;
+    color: black;
     font-size:1.6em;
     font-weight:300;
     margin-bottom: 3em;
@@ -28,14 +28,15 @@ input#message {
 .chat-container a {
     text-transform: uppercase;
     font-weight:bold;
-    color:#816A98;
+    color:#559e4a;
     font-size:.8em;
     letter-spacing:2px;
 }
 
 .chat-container p {
-    background:#323035;
-    padding:1.1em;
-    color:white;
+    background:#d1d1d1;
+    padding:0.7em;
+    color:black;
     margin: 5px 0 10px 0;
+    border-radius: 5px;
 }
