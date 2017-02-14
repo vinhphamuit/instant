@@ -1,27 +1,27 @@
 input#message {
     background:none;
     border:none;
-    border-bottom: 1px solid #d1d1d1;
+    border-top: 1px solid #d1d1d1;
     outline:none;
     box-shadow:none;
     color: black;
     font-size:1.6em;
     font-weight:300;
-    margin-bottom: 3em;
-    padding:1.2em 0;
+    margin-top: 1em;
+    padding: 1.6em 0;
 }
 
 .chat-container {
     display:block;
     width:100%;
 }
-.chat-container:nth-child(4) {
+.chat-container:nth-child(3) {
     opacity: .8;
 }
-.chat-container:nth-child(3) {
+.chat-container:nth-child(2) {
     opacity: .6;
 }
-.chat-container:nth-child(2) {
+.chat-container:nth-child(1) {
     opacity: .4;
 }
 
