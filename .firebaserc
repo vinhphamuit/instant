@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ng-chat-9fb08"
+    "default": "ng-chat-9fb08",
+    "instant": "instant-4cf24"
   }
 }
