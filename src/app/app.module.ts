@@ -7,11 +7,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCHwsquncw1q36mJI1728y8CYKuEoWOLYs",
-  authDomain: "ng-chat-9fb08.firebaseapp.com",
-  databaseURL: "https://ng-chat-9fb08.firebaseio.com",
-  storageBucket: "ng-chat-9fb08.appspot.com",
-  messagingSenderId: "617714781708"
+  apiKey: "AIzaSyC5Phwza_saEPSgAcjsa6XDRr3BQOjjYBg",
+  authDomain: "instant-4cf24.firebaseapp.com",
+  databaseURL: "https://instant-4cf24.firebaseio.com",
+  storageBucket: "instant-4cf24.appspot.com",
+  messagingSenderId: "741365764902"
 };
 
 @NgModule({
