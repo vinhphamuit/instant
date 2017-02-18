@@ -5,7 +5,7 @@
 </div>
 
 <div class="modal-dialog">
-  <div class="loginmodal-container">
+  <div class="container">
     <h1>Đăng nhập tài khoản</h1>
     <br>
 
@@ -16,14 +16,13 @@
       <input #password type="password" id="password" class="form-control" placeholder="Mật khẩu"
         required="">
       <br>
-      <button class="btn btn-md btn-block" type="submit">Đăng nhập</button>
+      <button class="btn btn-outline-primary btn-block" type="submit">Đăng nhập</button>
     </form>
-    <hr>
-
-    <button class="login loginmodal-submit" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
+    <br>
+    <button class="btn btn-primary btn-block" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
     <hr>
 
     <!--<a [routerLink]="['/register']" style="cursor: pointer;">Đăng ký ></a>-->
-    <button class="btn btn-md btn-block" [routerLink]="['/register']" style="cursor: pointer;">Đăng ký</button>
+    <button class="btn btn-outline-primary btn-block" [routerLink]="['/register']" style="cursor: pointer;">Đăng ký</button>
   </div>
 </div>

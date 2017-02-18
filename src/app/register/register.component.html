@@ -5,7 +5,7 @@
 </div>
 
 <div class="modal-dialog">
-  <div class="registermodal-container">
+  <div class="container">
     <h1>Đăng ký</h1><br>
 
     <form class="form-signin" (submit)="register($event, name.value, email.value, password.value)">
@@ -19,10 +19,10 @@
         required="">
       <br>
 
-      <button class="btn btn-md btn-block" type="submit">Đăng ký</button>
+      <button class="btn btn-outline-primary btn-block" type="submit">Đăng ký</button>
     </form>
     <hr>
 
-    <a [routerLink]="['/login']" style="cursor: pointer;">< Trở lại Đăng nhập</a>
+    <button class="btn btn-link btn-block" [routerLink]="['/login']">< Trở lại Đăng nhập</button>
   </div>
 </div>

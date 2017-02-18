@@ -1,13 +1,8 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="#" class="navbar-brand">INSTANT</a>
-    </div>
-    <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="logout()">Đăng xuất</a></li>
-      </ul>
-    </div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <a href="#" class="navbar-brand">INSTANT</a>
+  <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav navbar-nav mr-auto"></div>
+    <button class="btn btn-outline-danger my-2 my-md-0" (click)="logout()">Đăng xuất</button>
   </div>
 </nav>
 <div class="app-content">
