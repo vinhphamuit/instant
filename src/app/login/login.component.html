@@ -4,9 +4,9 @@
   {{ error }}
 </div>
 
-<div class="modal dialog">
-  <div class="moginmodal-container">
-    <h1>Đăng nhập vào tài khoản</h1>
+<div class="modal-dialog">
+  <div class="loginmodal-container">
+    <h1>Đăng nhập tài khoản</h1>
 
     <form class="form-signin" (submit)="loginWithEmail($event, email.value, password.value)">
       <label for="email" class="sr-only">Email</label>
@@ -19,9 +19,9 @@
     </form>
     <hr>
 
-    <button class="login loginmodal-submit" (click)="login()">Đăng nhập bằng Google</button>
+    <button class="login loginmodal-submit" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
     <hr>
 
-    <a [routerLink]="['/register']" style="cursor: pointer; text-align: center;">Đăng ký</a>
+    <a [routerLink]="['/register']" style="cursor: pointer;">Đăng ký</a>
   </div>
 </div>

@@ -17,18 +17,21 @@ export class AppComponent {
       (auth) => {
         if (auth == null) {
           console.log('Not logged in');
-          this.router.navigate(['login']);
           this.isLoggedIn = false;
+          this.router.navigate(['login']);
         } else {
           console.log('Logged in');
-          if(auth.facebook) {
+          if (auth.facebook) {
             this.afService.displayName = auth.facebook.displayName;
             this.afService.email = auth.facebook.email;
           } else {
             this.afService.displayName = auth.auth.email;
             this.afService.email = auth.auth.email;
           }
+          this.isLoggedIn = true;
+          this.router.navigate(['']);
         }
+
       }
     )
   }

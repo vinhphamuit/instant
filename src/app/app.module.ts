@@ -34,9 +34,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [NgFire],
   bootstrap: [AppComponent]
