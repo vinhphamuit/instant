@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  AngularFire,
-  AuthProviders,
-  AuthMethods,
-  FirebaseListObservable
-} from 'angularfire2';
+import { Router } from '@angular/router';
+
+import { NgFire } from '../providers/ngfire';
 
 @Component({
   selector: 'app-root',
@@ -12,33 +9,31 @@ import {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items: FirebaseListObservable<any>;
-  name: any;
-  messageVal: string = '';
+  public isLoggedIn: boolean;
 
-  constructor(public ngFire: AngularFire) {
-    this.items = ngFire.database.list('/messages', {
-      query: {
-        limitToLast: 5
+  constructor(public afService: NgFire, private router: Router) {
+    // Asynchronously check if user is logged in
+    this.afService.af.auth.subscribe(
+      (auth) => {
+        if (auth == null) {
+          console.log('Not logged in');
+          this.router.navigate(['login']);
+          this.isLoggedIn = false;
+        } else {
+          console.log('Logged in');
+          if(auth.facebook) {
+            this.afService.displayName = auth.facebook.displayName;
+            this.afService.email = auth.facebook.email;
+          } else {
+            this.afService.displayName = auth.auth.email;
+            this.afService.email = auth.auth.email;
+          }
+        }
       }
-    });
-
-    this.ngFire.auth.subscribe(auth => {
-      if (auth) {
-        this.name = auth;
-      }
-    });
+    )
   }
 
-  login() {
-    this.ngFire.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Popup
-    })
-  }
-
-  chatSend(theMessage: string) {
-    this.items.push({ message: theMessage, name: this.name.facebook.displayName });
-    this.messageVal = '';
+  logout() {
+    this.afService.logout();
   }
 }

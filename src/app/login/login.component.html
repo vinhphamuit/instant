@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{ error }}
+</div>
+
+<div class="modal dialog">
+  <div class="moginmodal-container">
+    <h1>Đăng nhập vào tài khoản</h1>
+
+    <form class="form-signin" (submit)="loginWithEmail($event, email.value, password.value)">
+      <label for="email" class="sr-only">Email</label>
+      <input #email type="email" id="email" class="form-control" placeholder="Địa chỉ email">
+      <label for="password" class="sr-only">Mật khẩu</label>
+      <input #password type="password" id="password" class="form-control" placeholder="Mật khẩu"
+        required="">
+      <br>
+      <button class="btn btn-md btn-primary btn-block" type="submit">Đăng nhập</button>
+    </form>
+    <hr>
+
+    <button class="login loginmodal-submit" (click)="login()">Đăng nhập bằng Google</button>
+    <hr>
+
+    <a [routerLink]="['/register']" style="cursor: pointer; text-align: center;">Đăng ký</a>
+  </div>
+</div>
