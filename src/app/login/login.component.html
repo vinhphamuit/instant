@@ -16,13 +16,14 @@
       <input #password type="password" id="password" class="form-control" placeholder="Mật khẩu"
         required="">
       <br>
-      <button class="btn btn-md btn-primary btn-block" type="submit">Đăng nhập</button>
+      <button class="btn btn-md btn-block" type="submit">Đăng nhập</button>
     </form>
     <hr>
 
     <button class="login loginmodal-submit" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
     <hr>
 
-    <a [routerLink]="['/register']" style="cursor: pointer;">Đăng ký ></a>
+    <!--<a [routerLink]="['/register']" style="cursor: pointer;">Đăng ký ></a>-->
+    <button class="btn btn-md btn-block" [routerLink]="['/register']" style="cursor: pointer;">Đăng ký</button>
   </div>
 </div>

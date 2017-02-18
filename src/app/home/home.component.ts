@@ -32,14 +32,14 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     this.newMessage = '';
   }
   
-  isYou(email) {
+  isMe(email) {
     if (email == this.afService.email) {
       return true;
     } else {
       return false;
     }
   }
-  isMe(email) {
+  isYou(email) {
     if (email == this.afService.email) {
       return false;
     } else {
