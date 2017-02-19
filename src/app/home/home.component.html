@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-10 offset-md-1">
       
       <div #scrollMe class="bs-example" id="messages">
         <div *ngFor="let message of messages | async">
@@ -13,17 +13,19 @@
           </div>
         </div>
       </div>
-
-      <figure class="highlight">
-        <div class="input-group">
-          <input type="textarea" class="form-control" placeholder="Nhập nội dung chat..."
-            [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" (click)="sendMessage()" type="button">Gửi</button>
-          </span>
-        </div>
-      </figure>
-
     </div>
   </div>
 </div>
+<footer>
+  <div class="col-md-8 offset-md-2">
+    <span class="text-muted">
+      <div class="input-group">
+        <input type="textarea" class="form-control" placeholder="Nhập nội dung chat..."
+          [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" (click)="sendMessage()" type="button">Gửi</button>
+        </span>
+      </div>
+    </span>
+  </div>
+ </footer>
