@@ -10,6 +10,7 @@ import { NgFire } from '../providers/ngfire';
 })
 export class AppComponent {
   public isLoggedIn: boolean;
+  public isCollapsed = true;
 
   constructor(public afService: NgFire, private router: Router) {
     // Asynchronously check if user is logged in
