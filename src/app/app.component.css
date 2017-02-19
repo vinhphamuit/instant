@@ -1,3 +1,6 @@
 .border-left {
   border-left: solid 1px;
 }
+.navbar-text {
+  padding-right: 5px;
+}

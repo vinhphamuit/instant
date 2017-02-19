@@ -4,12 +4,15 @@
       [attr.aria-expanded]="!isCollapsed" aria-controls="navbarButton">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a href="#" class="navbar-brand">INSTANT</a>
+  <h1 href="#" class="navbar-brand mb-0">INSTANT</h1>
   <div *ngIf="isLoggedIn" class="collapse navbar-collapse"
       id="navbarButton" [ngbCollapse]="isCollapsed">
-    <div class="navbar-nav mr-auto"></div>
-    <button class="btn btn-outline-danger my-2 my-md-0"
-        (click)="logout() && isCollapsed = !isCollapsed">Đăng xuất</button>
+    <ul class="navbar-nav mr-auto"></ul>
+
+    <span class="navbar-text my-2 my-md-0">{{ afService.displayName }}</span>
+    <button class="btn btn-outline-danger btn-sm" 
+        (click)="logout() && isCollapsed = !isCollapsed">Đăng xuất
+    </button>
   </div>
 </nav>
 <div class="app-content">
