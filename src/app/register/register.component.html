@@ -3,25 +3,49 @@
   {{ error }}
 </div>
 
-<div class="modal-dialog">
-  <div class="container">
-    <h2 class="form-signin-heading">Đăng ký</h2><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-block">
+          <h2 class="text-center">Đăng ký</h2><br>
 
-    <form class="form-signin" (submit)="register($event, name.value, email.value, password.value)">
-      <label for="name" class="sr-only">Tên</label>
-      <input #name type="text" id="name" class="form-control" placeholder="Tên" required="">
-      <label for="email" class="sr-only">Email</label>
-      <input #email type="email" id="email" class="form-control" placeholder="Địa chỉ email"
-        required="" autofocus="">
-      <label for="inputPassword" class="sr-only">Mật khẩu</label>
-      <input #password type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu"
-        required="">
-      <br>
+          <form class="form-signin" role="form" (submit)="register($event, name.value, email.value, password.value)">
+            <div class="form-group row">
+              <label for="name" class="sr-only">Tên</label>
+              <div class="col-sm-12">
+                <input #name type="text" id="name" class="form-control" placeholder="Tên" required="">
+              </div>
+            </div>
+          
+            <div class="form-group row">
+              <label for="email" class="sr-only">Email</label>
+              <div class="col-sm-12">
+                <input #email type="email" id="email" class="form-control" placeholder="Địa chỉ email"
+                  required="" autofocus="">
+              </div>
+            </div>
+          
+            <div class="form-group row">
+              <label for="inputPassword" class="sr-only">Mật khẩu</label>
+              <div class="col-sm-12">
+                <input #password type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu"
+                  required="">
+              </div>
+            </div>
 
-      <button class="btn btn-outline-primary btn-block" type="submit">Đăng ký</button>
-    </form>
-    <hr>
-
-    <button class="btn btn-link btn-block" [routerLink]="['/login']">< Trở lại Đăng nhập</button>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button class="btn btn-outline-primary btn-block" type="submit">Đăng ký</button>
+              </div>
+            </div>
+          </form>
+          <hr>
+          <button class="btn btn-link btn-block" [routerLink]="['/login']" style="cursor: pointer;">
+            < Trở lại Đăng nhập
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
