@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
+
     <div class="col-md-10 offset-md-1">
-      
       <div #scrollMe class="bs-example" id="messages">
+
         <div *ngFor="let message of messages | async">
           <div class="bubble"
             [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
@@ -12,8 +13,10 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
+
   </div>
 </div>
 <footer>
