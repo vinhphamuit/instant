@@ -23,8 +23,10 @@
         
         <input type="textarea" class="form-control" placeholder="Nhập nội dung chat..."
           [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+
+        <input accept="image/*,capture=camera" id="mediaCapture" #mediaCapture type="file" style="display: none;">
         <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">
+          <button class="btn btn-secondary" type="button" (click)="mediaCapture.click()" id="submitImage">
             <i class="fa fa-picture-o" aria-hidden="true" title="Hình ảnh"></i>
           </button>
         </span>
