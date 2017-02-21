@@ -10,8 +10,6 @@ import {
 import * as firebase from 'firebase';
 import { Observable, Subject, BehaviorSubject, ReplaySubject } from 'rxjs/Rx';
 
-const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
-
 @Injectable()
 export class NgFire {
   public auth: any;
