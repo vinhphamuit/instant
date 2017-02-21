@@ -8,9 +8,9 @@
           <div class="bubble"
             [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
             <p *ngIf="message.message">{{ message.message }}</p>
-            <p *ngIf="message.imageUrl"><img (load)="onLoadImage()" [src]="imageSrc | async"></p>
+            <p *ngIf="message.imageUrl"><img [src]="message.imageUrl" class="img-fluid"></p>
             <div class="author">
-              {{ message.displayName }} | {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+              {{ message.displayName }} | {{ message.timestamp | date:"dd/MM/yy hh:mm a" }}
             </div>
           </div>
         </div>

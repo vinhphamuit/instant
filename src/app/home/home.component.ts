@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild,
-  ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, Input } from '@angular/core';
+  ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, Input} from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 
@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   public newMessage: string;
   public newImage: any;
   public messages: FirebaseListObservable<any>;
-  imageSrc: Observable<string>;
+  imageSrc: string;
 
-  @Input() imageUrl: string;
+  @Input() message: any;
 
   constructor(public afService: NgFire, private cd: ChangeDetectorRef) {
     this.messages = afService.messages;
@@ -61,16 +61,6 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-
-  ngOnChanges() {
-    if (this.imageUrl) {
-      this.imageSrc = this.afService.setImageUrl(this.imageUrl);
-    }
-  }
-
-  onLoadImage() {
     this.scrollToBottom();
   }
 

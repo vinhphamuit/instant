@@ -93,41 +93,24 @@ export class NgFire {
   }
 
   sendImage(file: File) {
-    if (file) {
-      let image = {
+    let storageRef = firebase.storage().ref();
+    let uploadTask: firebase.storage.UploadTask;
+    uploadTask = storageRef.child(this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
+      console.error('There was an error uploading file to Firebase Storage: ', error);
+    }, () => {
+      let url = uploadTask.snapshot.downloadURL;
+      this.saveImage({
         displayName: this.displayName,
         email: this.email,
-        imageUrl: LOADING_IMAGE_URL,
+        imageUrl: url,
         timestamp: Date.now(),
-      };
-      this.messages.push(image).then((data) => {
-        // Upload the image
-        const uploadTask = this.auth.storage.ref(this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name)
-          .put(file);
-        // Listen for upload completion
-        uploadTask.on('state_changed', null, (error) => {
-          console.error('There was an error uploading file to Firebase Storage: ', error);
-        }, () => {
-          // Get the file's Storage URI and update the chat message placeholder
-          const filePath = uploadTask.snapshot.metadata.fullPath;
-          data.update({ imageUrl: this.auth.storage.ref(filePath).toString() });
-        });
       });
-    }
+    });
   }
 
-  setImageUrl(imageUrl: string): Observable<string> {
-    if (!imageUrl.startsWith('gs://')) {
-      return Observable.of(imageUrl);
-    }
-
-    // If image is a Firebase Storage URI, we fetch the URL
-    const subject = new BehaviorSubject<string>(LOADING_IMAGE_URL);
-
-    this.auth.storage.refFromURL(imageUrl).getMetadata().then((metadata) => {
-      subject.next(metadata.downloadURLs[0]);
-      subject.complete();
-    });
-    return subject.asObservable();
+  saveImage(image: any) {
+    this.messages.push(image);
   }
 }
