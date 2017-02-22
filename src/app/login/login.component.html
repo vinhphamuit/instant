@@ -1,6 +1,5 @@
 <div *ngIf="error" class="alert alert-warning" role="alert">
-  <span class="sr-only">Error:</span>
-  {{ error }}
+  <span class="sr-only">Error:</span> {{ error }}
 </div>
 
 <div class="container">
@@ -11,7 +10,7 @@
           <h2 class="text-center">Đăng nhập</h2><br>
 
           <form class="form-signin" role="form" #form="ngForm" (submit)="loginWithEmail($event, email.value, password.value)">
-            
+
             <div class="form-group row">
               <label for="email" class="sr-only">Email</label>
               <div class="col-sm-12">
@@ -22,19 +21,17 @@
             <div class="form-group row">
               <label for="password" class="sr-only">Mật khẩu</label>
               <div class="col-sm-12">
-                <input #password type="password" id="password" class="form-control"
-                    placeholder="Mật khẩu" required>
+                <input #password type="password" id="password" class="form-control" placeholder="Mật khẩu" required>
               </div>
             </div>
 
             <div class="form-group row">
               <div class="col-sm-12">
-                <button class="btn btn-outline-primary btn-block" type="submit"
-                    [disabled]="form.invalid">Đăng nhập</button>
+                <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="form.invalid">Đăng nhập</button>
               </div>
             </div>
           </form>
-          
+
           <button class="btn btn-primary btn-block" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
           <hr>
 
