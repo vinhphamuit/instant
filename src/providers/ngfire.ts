@@ -91,7 +91,7 @@ export class NgFire {
   sendImage(file: File) {
     let storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
-    uploadTask = storageRef.child(this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
+    uploadTask = storageRef.child('images/' + this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
       console.error('There was an error uploading file to Firebase Storage: ', error);
