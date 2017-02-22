@@ -1,11 +1,10 @@
-import { Injectable, Component, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   AngularFire,
   AuthProviders,
   AuthMethods,
   FirebaseListObservable,
-  FirebaseObjectObservable, 
-  FirebaseApp
+  FirebaseObjectObservable
 } from 'angularfire2';
 import * as firebase from 'firebase';
 import { Observable, Subject, BehaviorSubject, ReplaySubject } from 'rxjs/Rx';
@@ -20,14 +19,13 @@ export class NgFire {
   public imageUrl: string;
   public user: FirebaseObjectObservable<any>;
 
-  constructor(public af: AngularFire, @Inject(FirebaseApp) firebaseApp: any) {
+  constructor(public af: AngularFire) {
     this.af.auth.subscribe(
       (auth) => {
         if (auth != null) {
           this.user = this.af.database.object('users/' + auth.uid);
         }
     });
-    this.auth = firebaseApp.auth();
 
     this.messages = this.af.database.list('messages');
     this.users = this.af.database.list('users');
