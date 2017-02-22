@@ -97,7 +97,7 @@ export class NgFire {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
       let url = uploadTask.snapshot.downloadURL;
-      this.saveImage({
+      this.saveFile({
         displayName: this.displayName,
         email: this.email,
         imageUrl: url,
@@ -106,7 +106,26 @@ export class NgFire {
     });
   }
 
-  saveImage(image: any) {
-    this.messages.push(image);
+  sendFile(file: File) {
+    let storageRef = firebase.storage().ref();
+    let uploadTask: firebase.storage.UploadTask;
+    uploadTask = storageRef.child('files/' + this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
+      console.error('There was an error uploading file to Firebase Storage: ', error);
+    }, () => {
+      let url = uploadTask.snapshot.downloadURL;
+      this.saveFile({
+        displayName: this.displayName,
+        email: this.email,
+        fileName: file.name,
+        fileUrl: url,
+        timestamp: Date.now(),
+      });
+    });
+  }
+
+  saveFile(file: any) {
+    this.messages.push(file);
   }
 }

@@ -47,14 +47,14 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  onSelectImageFile(event) {
+  onSelectFile(event) {
     if (event.target && event.target.files && event.target.files.length) {
       const file = event.target.files[0] as File;
       console.log(file);
       if (file.type.match('image.*')) {
         this.afService.sendImage(file);
       } else {
-        this.newImage = "";
+        this.afService.sendFile(file);
       }
     }
   }
