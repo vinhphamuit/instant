@@ -7,7 +7,7 @@
         <div *ngFor="let message of messages | async">
           <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
             <p *ngIf="message.message">{{ message.message }}</p>
-            <p *ngIf="message.imageUrl"><img [src]="message.imageUrl" class="img-fluid"></p>
+            <p *ngIf="message.imageUrl"><img [src]="message.imageUrl" class="img-fluid" (load)="scrollToBottom()"></p>
             <div class="author">
               {{ message.displayName }} | {{ message.timestamp | date:"dd/MM/yy hh:mm a" }}
             </div>
