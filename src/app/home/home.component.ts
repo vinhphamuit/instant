@@ -16,10 +16,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   public newMessage: string;
   public newImage: any;
   public messages: FirebaseListObservable<any>;
-  imageSrc: string;
-
-  @Input() message: any;
-
+  
   constructor(public afService: NgFire, private cd: ChangeDetectorRef) {
     this.messages = afService.messages;
   }
