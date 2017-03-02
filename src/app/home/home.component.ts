@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild,
-  ChangeDetectionStrategy, ChangeDetectorRef, Input} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild,
+  ChangeDetectionStrategy, ChangeDetectorRef, Input, ElementRef
+} from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
 import { NgFire } from '../../providers/ngfire';
