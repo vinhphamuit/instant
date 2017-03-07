@@ -1,0 +1,46 @@
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="sr-only">Error:</span> {{ error }}
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-block">
+          <h2 class="text-center">Đăng nhập</h2><br>
+
+          <form class="form-signin" role="form" #form="ngForm" (submit)="loginWithEmail($event, email.value, password.value)">
+
+            <div class="form-group row">
+              <label for="email" class="sr-only">Email</label>
+              <div class="col-sm-12">
+                <input #email type="email" id="email" class="form-control" placeholder="Địa chỉ email" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="password" class="sr-only">Mật khẩu</label>
+              <div class="col-sm-12">
+                <input #password type="password" id="password" class="form-control" placeholder="Mật khẩu" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="form.invalid">Đăng nhập</button>
+              </div>
+            </div>
+          </form>
+
+          <button class="btn btn-primary btn-block" (click)="loginWithFacebook()">Đăng nhập bằng Facebook</button>
+          <hr>
+
+          <!--<a [routerLink]="['/register']" style="cursor: pointer;">Đăng ký ></a>-->
+          <button class="btn btn-link btn-block" [routerLink]="['/register']" style="cursor: pointer;">
+            Đăng ký >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

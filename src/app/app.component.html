@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="navbarButton">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a href="#" class="navbar-brand mb-0"><i class="fa fa-comment-o" aria-hidden="true"></i>
+      INSTANT</a>
+  <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="navbarButton" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto"></ul>
+
+    <span class="navbar-text my-2 my-md-0">{{ afService.displayName }}</span>
+    <button class="btn btn-outline-danger btn-sm" (click)="logout() && isCollapsed = !isCollapsed">
+      <i class="fa fa-sign-out" aria-hidden="true" title="Đăng xuất"></i>
+    </button>
+  </div>
+</nav>
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

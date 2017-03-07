@@ -1,0 +1,63 @@
+.bs-example {
+  position: relative;
+  padding: 15px 15px 15px;
+  margin: 0 -15px 0px;
+  border-style: none;
+  background-color: white;
+  height: 80vh;
+  overflow-y: scroll;
+}
+#messages {
+  background-color: white !important;
+}
+.author {
+  font-size: 12px;
+  opacity: 0.7;
+  font-style: italic;
+}
+p {
+  font-size: 16px;
+}
+.bubble{
+  border-radius: 14px;
+  display: inline-block;
+  padding: 10px 18px;
+  position: relative;
+  vertical-align: top;
+}
+.bubble::before {
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 11px;
+  transform:             rotate( 29deg ) skew( -35deg );
+  -moz-transform:    rotate( 29deg ) skew( -35deg );
+  -ms-transform:     rotate( 29deg ) skew( -35deg );
+  -o-transform:      rotate( 29deg ) skew( -35deg );
+  -webkit-transform: rotate( 29deg ) skew( -35deg );
+  width:  20px;
+}
+.you {
+  background-color: #f5f5f5;
+  display: inherit;
+  margin: 10px 45px 5px 20px;
+}
+.you::before {
+  background-color: #f5f5f5;
+  left: -9px;
+}
+.me {
+  background-color: #b0e8b0;
+  display: inherit;
+  margin: 10px 20px 5px 45px;
+}
+.me::before {
+  background-color: #b0e8b0;
+  right: -9px;
+}
+.bs-example+.highlight, .bs-example+.zero-clipboard+.highlight {
+  margin: 0px -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
