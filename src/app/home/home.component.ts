@@ -1,7 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ViewChild,
-  ChangeDetectionStrategy, ChangeDetectorRef, Input, ElementRef
-} from '@angular/core';
-import { FirebaseListObservable } from 'angularfire2';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, Input, ElementRef } from '@angular/core';
 
 import { NgFire } from '../../providers/ngfire';
 
@@ -11,19 +8,11 @@ import { NgFire } from '../../providers/ngfire';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit, AfterViewChecked {
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-
+export class HomeComponent implements OnInit {
   public newMessage: string;
   public newImage: any;
-  public messages: FirebaseListObservable<any>;
-  imageSrc: string;
 
-  @Input() message: any;
-
-  constructor(public afService: NgFire, private cd: ChangeDetectorRef) {
-    this.messages = afService.messages;
-  }
+  constructor(public afService: NgFire) {  }
 
   ngOnInit() {
   }
@@ -31,21 +20,6 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   sendMessage() {
     this.afService.sendMessage(this.newMessage);
     this.newMessage = '';
-  }
-  
-  isMe(email) {
-    if (email == this.afService.email) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  isYou(email) {
-    if (email == this.afService.email) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   onSelectFile(event) {
@@ -57,18 +31,6 @@ export class HomeComponent implements OnInit, AfterViewChecked {
       } else {
         this.afService.sendFile(file);
       }
-    }
-  }
-
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-
-  scrollToBottom(): void {
-    try {
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) {
-      console.log('Scroll to bottom failed');
     }
   }
 }
