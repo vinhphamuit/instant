@@ -18,7 +18,7 @@ export class LoginComponent {
       // Send to the homepage if logged in
       this.afService.addUserInfo();
       this.router.navigate(['']);
-    })
+    });
   }
   loginWithEmail(event, email, password) {
     event.preventDefault();

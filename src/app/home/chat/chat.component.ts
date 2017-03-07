@@ -28,20 +28,20 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   scrollToBottom(): void {
     try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) {
+    } catch (err) {
       console.log('Scroll to bottom failed');
     }
   }
 
   isMe(email) {
-    if (email == this.afService.email) {
+    if (email === this.afService.email) {
       return true;
     } else {
       return false;
     }
   }
   isYou(email) {
-    if (email == this.afService.email) {
+    if (email === this.afService.email) {
       return false;
     } else {
       return true;
