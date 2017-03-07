@@ -66,7 +66,7 @@ export class NgFire {
       method: AuthMethods.Popup,
     });
   }
-  addUserInfo(){
+  addUserInfo() {
     this.users.push({
       email: this.email,
       displayName: this.displayName,
@@ -79,7 +79,7 @@ export class NgFire {
   }
 
   sendMessage(text) {
-    let message = {
+    const message = {
       message: text,
       displayName: this.displayName,
       email: this.email,
@@ -89,14 +89,14 @@ export class NgFire {
   }
 
   sendImage(file: File) {
-    let storageRef = firebase.storage().ref();
+    const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
     uploadTask = storageRef.child('images/' + this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
-      let url = uploadTask.snapshot.downloadURL;
+      const url = uploadTask.snapshot.downloadURL;
       this.saveFile({
         displayName: this.displayName,
         email: this.email,
@@ -107,14 +107,14 @@ export class NgFire {
   }
 
   sendFile(file: File) {
-    let storageRef = firebase.storage().ref();
+    const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
     uploadTask = storageRef.child('files/' + this.af.auth.getAuth().uid + '/' + Date.now() + '/' + file.name).put(file);
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
-      let url = uploadTask.snapshot.downloadURL;
+      const url = uploadTask.snapshot.downloadURL;
       this.saveFile({
         displayName: this.displayName,
         email: this.email,
