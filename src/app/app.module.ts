@@ -11,6 +11,7 @@ import { NgFire } from '../providers/ngfire';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { RoomComponent } from './room/room.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC5Phwza_saEPSgAcjsa6XDRr3BQOjjYBg",
@@ -31,7 +32,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    RoomComponent
   ],
   imports: [
     NgbModule.forRoot(),
