@@ -42,9 +42,9 @@ export class NgFire {
 
   // Save information to display on chat screen
   saveUserInfo(id, name, email) {
-    return this.af.database.object('registeredUser/' + id).set({
-      name: name,
-      email: email
+    return this.af.database.object('users/' + id).set({
+      email: email,
+      displayName: name
     });
   }
 
