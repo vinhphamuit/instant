@@ -1,4 +1,4 @@
-# INSTANT
+# INSTANT [![Build Status](https://travis-ci.org/finncbn/ng-instant.svg?branch=master)](https://travis-ci.org/finncbn/ng-instant)
 (An Angular/TypeScript based realtime chat app)
 
 Try out at [finncbn.github.io/ng-instant](https://finncbn.github.io/ng-instant/) or [vinhp.me](https://vinhp.me) 
