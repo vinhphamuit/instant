@@ -1,7 +1,7 @@
 # INSTANT 
 (An Angular/TypeScript based realtime chat app)
 
-[![GitHub version](https://badge.fury.io/gh/finncbn/ng-instant.svg)](https://badge.fury.io/gh/finncbn/ng-instant)
+[![GitHub version](https://badge.fury.io/gh/finncbn%2Fng-instant.svg)](https://badge.fury.io/gh/finncbn%2Fng-instant)
 [![Build Status](https://travis-ci.org/finncbn/ng-instant.svg?branch=master)](https://travis-ci.org/finncbn/ng-instant)
 
 Try out at [finncbn.github.io/ng-instant](https://finncbn.github.io/ng-instant/) or [vinhp.me](https://vinhp.me) 
