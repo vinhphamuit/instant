@@ -1,10 +1,10 @@
 # INSTANT 
 (An Angular/TypeScript based realtime chat app)
 
-[![GitHub release](https://img.shields.io/github/release/finncbn/ng-instant.svg)](https://github.com/finncbn/ng-instant/)
-[![Build Status](https://travis-ci.org/finncbn/ng-instant.svg?branch=master)](https://travis-ci.org/finncbn/ng-instant)
+[![GitHub release](https://img.shields.io/github/release/finnb/ng-instant.svg)](https://github.com/finnb/ng-instant/)
+[![Build Status](https://travis-ci.org/finnb/ng-instant.svg?branch=master)](https://travis-ci.org/finnb/ng-instant)
 
-Try out at [finncbn.github.io/ng-instant](https://finncbn.github.io/ng-instant/) or [vinhp.me](https://vinhp.me) 
+Try out at [finnb.github.io/ng-instant](https://finnb.github.io/ng-instant/) or [vinhp.me](https://vinhp.me) 
 
 ## Current features
 - Create, login with an account
