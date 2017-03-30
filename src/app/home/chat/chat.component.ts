@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
-import { NgFire } from '../../../providers/ngfire';
+import { NgFire } from '../../shared';
 
 @Component({
   selector: 'app-chat',

@@ -7,7 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NgFire } from '../providers/ngfire';
+import { NgFire } from './shared';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';

@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 
-import { NgFire } from '../../providers/ngfire';
+import { NgFire } from '../shared';
 
 @Component({
   selector: 'app-home',

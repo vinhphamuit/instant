@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NgFire } from '../providers/ngfire';
+import { NgFire } from './shared';
 
 @Component({
   selector: 'app-root',
