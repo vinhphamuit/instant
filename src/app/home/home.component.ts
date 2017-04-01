@@ -8,29 +8,31 @@ import { NgFire } from '../shared';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
-  public newMessage: string;
-  public newImage: any;
+export class HomeComponent {
+  public isLoggedIn: boolean;
 
-  constructor(public afService: NgFire) {  }
-
-  ngOnInit() {
-  }
-
-  sendMessage() {
-    this.afService.sendMessage(this.newMessage);
-    this.newMessage = '';
-  }
-
-  onSelectFile(event) {
-    if (event.target && event.target.files && event.target.files.length) {
-      const file = event.target.files[0] as File;
-      console.log(file);
-      if (file.type.match('image.*')) {
-        this.afService.sendImage(file);
-      } else {
-        this.afService.sendFile(file);
+  constructor(private afService: NgFire) {
+     this.afService.af.auth.subscribe(
+      (auth) => {
+        if (auth == null) {
+          console.log('Not logged in');
+          this.isLoggedIn = false;
+        } else {
+          console.log('Logged in');
+          if (auth.facebook) {
+            this.afService.displayName = auth.facebook.displayName;
+            this.afService.email = auth.facebook.email;
+          } else {
+            this.afService.displayName = auth.auth.email;
+            this.afService.email = auth.auth.email;
+          }
+          this.isLoggedIn = true;
+        }
       }
-    }
+    );
+  }
+
+  logout() {
+    this.afService.logout();
   }
 }

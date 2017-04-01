@@ -1,34 +1,40 @@
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-10 offset-md-1">
-      <app-chat></app-chat>
+<nav class="navbar navbar-fixed-top navbar-toggleable-sm navbar-light bg-faded mb-3">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="offcanvas" title="Toggle responsive left sidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="flex-row d-flex">
+      <a class="navbar-brand mb-1" href="#">INSTANT</a>
+    </div>
+</nav>
+<div class="container-fluid" id="main">
+  <div class="row row-offcanvas row-offcanvas-left">
+    <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
+      <ul class="nav flex-column pl-1">
+        <li class="nav-item"><a class="nav-link" href="#">Overview</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Reports ▾</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Export</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Nav item</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Nav item</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Another</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Nav item</a></li>
+        <li class="nav-item"><a class="nav-link" href="">One more</a></li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="btn btn-outline-danger btn-sm" (click)="logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất
+          </button>
+        </li>
+      </ul>
     </div>
 
-  </div>
+    <div class="col-md-9 col-lg-10 main">
+        <h1 class="display-2 hidden-xs-down">
+        <!-- Room title -->
+        </h1>
+
+        <app-chat></app-chat>
+    </div>
+    </div>
 </div>
-<footer>
-  <div class="col-md-8 offset-md-2">
-    <span class="text-muted">
-      <div class="input-group">
-        
-        <input type="textarea" class="form-control" placeholder="Nhập nội dung chat..."
-          [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
-
-        <input id="fileCapture"
-            [(ngModel)]="newImage" #fileCapture (change)="onSelectFile($event)" type="file" style="display: none;">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button" (click)="fileCapture.click()" id="submitFile">
-            <i class="fa fa-paperclip" aria-hidden="true" title="Gửi hình ảnh hoặc file"></i>
-          </button>
-        </span>
-
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" (click)="sendMessage()" type="button" [disabled]="!newMessage">
-            <i class="fa fa-paper-plane" aria-hidden="true" title="Gửi"></i>
-          </button>
-        </span>
-  </div>
-  </span>
-  </div>
-</footer>

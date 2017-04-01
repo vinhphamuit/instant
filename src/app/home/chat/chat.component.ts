@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
 import { NgFire } from '../../shared';
@@ -8,17 +8,34 @@ import { NgFire } from '../../shared';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, AfterViewChecked {
+export class ChatComponent implements AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   public messages: FirebaseListObservable<any>;
   imageSrc: string;
+  public newMessage: string;
+  public newImage: any;
+
 
   constructor(public afService: NgFire) {
     this.messages = afService.messages;
   }
 
-  ngOnInit() {
+  sendMessage() {
+    this.afService.sendMessage(this.newMessage);
+    this.newMessage = '';
+  }
+
+  onSelectFile(event) {
+    if (event.target && event.target.files && event.target.files.length) {
+      const file = event.target.files[0] as File;
+      console.log(file);
+      if (file.type.match('image.*')) {
+        this.afService.sendImage(file);
+      } else {
+        this.afService.sendFile(file);
+      }
+    }
   }
 
   ngAfterViewChecked() {
