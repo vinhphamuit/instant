@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -13,13 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './home/chat/chat.component';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyC5Phwza_saEPSgAcjsa6XDRr3BQOjjYBg',
-  authDomain: 'instant-4cf24.firebaseapp.com',
-  databaseURL: 'https://instant-4cf24.firebaseio.com',
-  storageBucket: 'instant-4cf24.appspot.com',
-  messagingSenderId: '741365764902'
-};
+
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +36,9 @@ const routes: Routes = [
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase, 'ng-instant'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot(routes),
     FormsModule
   ],

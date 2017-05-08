@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(public afService: NgFire, private router: Router) {
     // Asynchronously check if user is logged in
-    this.afService.af.auth.subscribe(
+    this.afService.auth.subscribe(
       (auth) => {
         if (auth == null) {
           console.log('Not logged in');
