@@ -2,22 +2,23 @@ sudo: required
 dist: xenial
 language: node_js
 node_js:
-  - '7.7'
+  - '7.10'
 
 branches:
   only:
     - master
 
 before_script:
-- npm install -g firebase-tools
+# - npm install -g firebase-tools
 - npm install -g @angular/cli
 - npm install
 
 script:
-- ng build --prod
+- ng build --prod --base-href="https://finnzeit.github.io/ng-instant/"
 
 after_success:
-- firebase deploy --token $FIREBASE_TOKEN
+# - firebase deploy --token $FIREBASE_TOKEN
+- ngh --repo=https://0ac04642efd3fa523aa821a09421ec7f6adc51b8@github.com/finnzeit/ng-instant.git --name="finzeit" --email=finnzeit@gmail.com
 
 notifications:
   email:
