@@ -18,7 +18,7 @@ script:
 
 after_success:
 # - firebase deploy --token $FIREBASE_TOKEN
-- ngh --repo=https://0ac04642efd3fa523aa821a09421ec7f6adc51b8@github.com/finnzeit/ng-instant.git --name="finzeit" --email=finnzeit@gmail.com
+- ngh --repo=https://0ac04642efd3fa523aa821a09421ec7f6adc51b8@github.com/finnzeit/ng-instant.git --name="finnzeit" --email=finnzeit@gmail.com
 
 notifications:
   email:
