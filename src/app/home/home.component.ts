@@ -12,19 +12,19 @@ export class HomeComponent {
   public isLoggedIn: boolean;
 
   constructor(private afService: NgFire) {
-     this.afService.af.auth.subscribe(
+     this.afService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
           console.log('Not logged in');
           this.isLoggedIn = false;
         } else {
           console.log('Logged in');
-          if (auth.facebook) {
-            this.afService.displayName = auth.facebook.displayName;
-            this.afService.email = auth.facebook.email;
+          if (auth.displayName) {
+            this.afService.displayName = auth.displayName;
+            this.afService.email = auth.email;
           } else {
-            this.afService.displayName = auth.auth.email;
-            this.afService.email = auth.auth.email;
+            this.afService.displayName = auth.email;
+            this.afService.email = auth.email;
           }
           this.isLoggedIn = true;
         }
