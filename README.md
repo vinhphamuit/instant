@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/finnzeit/ng-instant.svg)](https://github.com/finnzeit/ng-instant/)
 [![Build Status](https://travis-ci.org/finnzeit/ng-instant.svg?branch=master)](https://travis-ci.org/finnzeit/ng-instant)
 
-Try out at [finnzeit.github.io/ng-instant](https://finnzeit.github.io/ng-instant/) or [vinhp.me](https://vinhp.me) 
+Try out at [finnzeit.github.io/ng-instant](https://finnzeit.github.io/ng-instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
 
 ## Current features
 - Create, login with an account

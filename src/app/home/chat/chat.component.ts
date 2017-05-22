@@ -1,5 +1,6 @@
-import { Component, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
-import { FirebaseListObservable } from 'angularfire2';
+
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 import { NgFire } from '../../shared';
 
