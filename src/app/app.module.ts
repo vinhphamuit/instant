@@ -36,7 +36,7 @@ const routes: Routes = [
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase, 'ng-instant'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(routes),

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 import { NgFire } from './shared';
 
@@ -13,8 +14,9 @@ export class AppComponent {
   public isCollapsed = true;
 
   constructor(public afService: NgFire, private router: Router) {
+    // console.log(afService);
     // Asynchronously check if user is logged in
-    this.afService.auth.subscribe(
+    this.afService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
           console.log('Not logged in');
@@ -22,17 +24,17 @@ export class AppComponent {
           this.router.navigate(['login']);
         } else {
           console.log('Logged in');
-          if (auth.facebook) {
-            this.afService.displayName = auth.facebook.displayName;
-            this.afService.email = auth.facebook.email;
+          // console.log(auth);
+          if (auth.displayName) {
+            this.afService.displayName = auth.displayName;
+            this.afService.email = auth.email;
           } else {
-            this.afService.displayName = auth.auth.email;
-            this.afService.email = auth.auth.email;
+            this.afService.displayName = auth.email;
+            this.afService.email = auth.email;
           }
           this.isLoggedIn = true;
           this.router.navigate(['']);
         }
-
       }
     );
   }

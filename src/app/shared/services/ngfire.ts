@@ -20,7 +20,7 @@ export class NgFire {
   public imageUrl: string;
   public user: FirebaseObjectObservable<any>;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
     this.afAuth.authState.subscribe(
       (auth) => {
         if (auth != null) {
