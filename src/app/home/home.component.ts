@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 
 import { NgFire } from '../shared';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,10 @@ import { NgFire } from '../shared';
 })
 export class HomeComponent {
   public isLoggedIn: boolean;
+  public newChannel = false;
+  public channels: FirebaseListObservable<any>;
+  public activeChannel;
+  public channelId;
 
   constructor(private afService: NgFire) {
      this.afService.afAuth.authState.subscribe(
@@ -30,9 +35,24 @@ export class HomeComponent {
         }
       }
     );
+
+    this.channels = afService.channels;
   }
 
   logout() {
     this.afService.logout();
+  }
+
+  selectNewChannel() {
+    this.activeChannel = null;
+    this.newChannel = true;
+  }
+
+  selectChannel(channel) {
+    this.activeChannel = channel;
+    this.newChannel = false;
+    console.log(this.activeChannel);
+    this.channelId = channel.$key;
+    console.log(this.channelId);
   }
 }

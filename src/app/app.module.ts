@@ -18,6 +18,7 @@ import { ChatComponent } from './home/chat/chat.component';
 
 
 import { environment } from '../environments/environment';
+import { NewChannelComponent } from './home/new-channel/new-channel.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    ChatComponent
+    ChatComponent,
+    NewChannelComponent
   ],
   imports: [
     NgbModule.forRoot(),

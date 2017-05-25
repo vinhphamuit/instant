@@ -13,7 +13,8 @@ import { Observable, Subject, BehaviorSubject, ReplaySubject } from 'rxjs/Rx';
 @Injectable()
 export class NgFire {
   public auth: any;
-  public messages: FirebaseListObservable<any>;
+  public channels: FirebaseListObservable<any>;
+  public channelMessages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;
@@ -28,8 +29,12 @@ export class NgFire {
         }
     });
 
-    this.messages = this.db.list('messages');
+    this.channels = this.db.list('channels');
     this.users = this.db.list('users');
+  }
+
+  receiveMessages(channel) {
+    this.channelMessages = this.db.list('channelMessages/' + channel);
   }
 
   // Register
@@ -65,17 +70,17 @@ export class NgFire {
     return this.afAuth.auth.signOut();
   }
 
-  sendMessage(text) {
+  sendMessage(channel, text) {
     const message = {
       message: text,
       displayName: this.displayName,
       email: this.email,
       timestamp: Date.now(),
     };
-    this.messages.push(message);
+    this.db.list('channelMessages/' + channel).push(message);
   }
 
-  sendImage(file: File) {
+  sendImage(channel, file: File) {
     const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
     uploadTask = storageRef.child('images/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
@@ -84,7 +89,7 @@ export class NgFire {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
       const url = uploadTask.snapshot.downloadURL;
-      this.saveFile({
+      this.saveFile(channel, {
         displayName: this.displayName,
         email: this.email,
         imageUrl: url,
@@ -93,7 +98,7 @@ export class NgFire {
     });
   }
 
-  sendFile(file: File) {
+  sendFile(channel, file: File) {
     const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
     uploadTask = storageRef.child('files/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
@@ -102,7 +107,7 @@ export class NgFire {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
       const url = uploadTask.snapshot.downloadURL;
-      this.saveFile({
+      this.saveFile(channel, {
         displayName: this.displayName,
         email: this.email,
         fileName: file.name,
@@ -112,7 +117,15 @@ export class NgFire {
     });
   }
 
-  saveFile(file: any) {
-    this.messages.push(file);
+  saveFile(channel, file: any) {
+    this.db.list('channelMessages/' + channel).push(file);
+  }
+
+  createChannel(channelName) {
+    this.channels.push({
+      name: channelName
+    }).then((snap) => {
+      const channelId = snap.key;
+    });
   }
 }

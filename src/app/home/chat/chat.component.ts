@@ -1,5 +1,5 @@
 
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, Input } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 import { NgFire } from '../../shared';
@@ -11,6 +11,7 @@ import { NgFire } from '../../shared';
 })
 export class ChatComponent implements AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @Input() channelId;
 
   public messages: FirebaseListObservable<any>;
   imageSrc: string;
@@ -19,11 +20,12 @@ export class ChatComponent implements AfterViewChecked {
 
 
   constructor(public afService: NgFire) {
-    this.messages = afService.messages;
+    afService.receiveMessages(this.channelId);
+    this.messages = afService.channelMessages;
   }
 
   sendMessage() {
-    this.afService.sendMessage(this.newMessage);
+    this.afService.sendMessage(this.channelId, this.newMessage);
     this.newMessage = '';
   }
 
@@ -32,9 +34,9 @@ export class ChatComponent implements AfterViewChecked {
       const file = event.target.files[0] as File;
       console.log(file);
       if (file.type.match('image.*')) {
-        this.afService.sendImage(file);
+        this.afService.sendImage(this.channelId, file);
       } else {
-        this.afService.sendFile(file);
+        this.afService.sendFile(this.channelId, file);
       }
     }
   }
