@@ -1,10 +1,10 @@
 # INSTANT 
 (An Angular/TypeScript based realtime chat app)
 
-[![GitHub release](https://img.shields.io/github/release/finnzeit/ng-instant.svg)](https://github.com/finnzeit/ng-instant/)
-[![Build Status](https://travis-ci.org/finnzeit/ng-instant.svg?branch=master)](https://travis-ci.org/finnzeit/ng-instant)
+[![GitHub release](https://img.shields.io/github/release/finnzeit/instant.svg)](https://github.com/finnzeit/instant/)
+[![Build Status](https://travis-ci.org/finnzeit/instant.svg?branch=master)](https://travis-ci.org/finnzeit/instant)
 
-Try out at [finnzeit.github.io/ng-instant](https://finnzeit.github.io/ng-instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
+Try out at [finnzeit.github.io/instant](https://finnzeit.github.io/instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
 
 ## Current features
 - Create, login with an account
