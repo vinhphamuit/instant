@@ -1,7 +1,6 @@
 # INSTANT 
 (An Angular/TypeScript based realtime chat app)
 
-[![GitHub release](https://img.shields.io/github/release/finnzeit/instant.svg)](https://github.com/finnzeit/instant/)
 [![Build Status](https://travis-ci.org/finnzeit/instant.svg?branch=master)](https://travis-ci.org/finnzeit/instant)
 [![codebeat badge](https://codebeat.co/badges/1b33c26b-9165-454f-b3df-dbe4dfb56c9e)](https://codebeat.co/projects/github-com-finnzeit-instant-master)
 
