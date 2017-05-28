@@ -35,7 +35,7 @@ export class AngularFire {
   }
 
   getMessages(channel): FirebaseListObservable<any> {
-    return this.db.list('channelMessages/' + channel)
+    return this.db.list('channelMessages/' + channel);
   }
 
   // Register
