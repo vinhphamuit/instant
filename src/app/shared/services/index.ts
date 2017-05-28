@@ -1,1 +1,1 @@
-export * from './ngfire';
+export * from './firebase';

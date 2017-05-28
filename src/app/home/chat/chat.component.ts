@@ -1,15 +1,15 @@
 
-import { Component, AfterViewChecked, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, Input, OnChanges } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 
-import { NgFire } from '../../shared';
+import { AngularFire } from '../../shared';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements AfterViewChecked {
+export class ChatComponent implements AfterViewChecked, OnChanges {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   @Input() channelId;
 
@@ -18,10 +18,10 @@ export class ChatComponent implements AfterViewChecked {
   public newMessage: string;
   public newImage: any;
 
+  constructor(public afService: AngularFire) {}
 
-  constructor(public afService: NgFire) {
-    afService.receiveMessages(this.channelId);
-    this.messages = afService.channelMessages;
+  ngOnChanges() {
+    this.messages = this.afService.getMessages(this.channelId);
   }
 
   sendMessage() {

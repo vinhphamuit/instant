@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgFire } from 'app/shared';
+import { AngularFire } from 'app/shared';
 import { HomeComponent } from 'app/home/home.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { HomeComponent } from 'app/home/home.component';
 export class NewChannelComponent {
   @Input() newChannel;
 
-  constructor(private afService: NgFire) {}
+  constructor(private afService: AngularFire) {}
 
   createChannel(event, channelName) {
     event.preventDefault();

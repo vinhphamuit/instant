@@ -9,7 +9,7 @@
 <div class="container-fluid" id="main">
   <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
-      <ul class="list-group flex-column pl-1">
+      <ul class="list-group flex-column pl-1 channels-list">
         <li class="list-group-item list-group-item-action"
           *ngFor="let channel of channels | async"
           (click)="selectChannel(channel)"
@@ -32,7 +32,7 @@
         <!-- Room title -->
         </h1>
         <app-new-channel *ngIf="newChannel" [newChannel]="newChannel"></app-new-channel>
-        <app-chat [channelId]="channelId"></app-chat>
+        <app-chat *ngIf="channelId" [channelId]="channelId"></app-chat>
     </div>
     </div>
 </div>

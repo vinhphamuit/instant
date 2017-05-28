@@ -11,15 +11,16 @@ import * as firebase from 'firebase';
 import { Observable, Subject, BehaviorSubject, ReplaySubject } from 'rxjs/Rx';
 
 @Injectable()
-export class NgFire {
+export class AngularFire {
   public auth: any;
   public channels: FirebaseListObservable<any>;
-  public channelMessages: FirebaseListObservable<any>;
+  // public channelMessages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;
   public imageUrl: string;
   public user: FirebaseObjectObservable<any>;
+  channelId;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
     this.afAuth.authState.subscribe(
@@ -33,8 +34,8 @@ export class NgFire {
     this.users = this.db.list('users');
   }
 
-  receiveMessages(channel) {
-    this.channelMessages = this.db.list('channelMessages/' + channel);
+  getMessages(channel): FirebaseListObservable<any> {
+    return this.db.list('channelMessages/' + channel)
   }
 
   // Register

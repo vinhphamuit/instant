@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NgFire } from '../shared';
+import { AngularFire } from '../shared';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,7 @@ import { NgFire } from '../shared';
 export class RegisterComponent {
   public error: any;
 
-  constructor(private afService: NgFire, private router: Router) {}
+  constructor(private afService: AngularFire, private router: Router) {}
 
   register(event, name, email, password) {
     event.preventDefault();

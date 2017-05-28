@@ -1,3 +1,7 @@
 #sidebar {
   padding-left: 10px;
 }
+
+.channels-list li {
+  cursor: pointer;
+}

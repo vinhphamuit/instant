@@ -10,7 +10,7 @@ import * as firebase from 'firebase/app';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NgFire } from './shared';
+import { AngularFire } from './shared';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -44,7 +44,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [NgFire],
+  providers: [AngularFire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

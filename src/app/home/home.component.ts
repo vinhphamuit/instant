@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 
-import { NgFire } from '../shared';
+import { AngularFire } from '../shared';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomeComponent {
   public activeChannel;
   public channelId;
 
-  constructor(private afService: NgFire) {
+  constructor(private afService: AngularFire) {
      this.afService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
@@ -51,8 +51,6 @@ export class HomeComponent {
   selectChannel(channel) {
     this.activeChannel = channel;
     this.newChannel = false;
-    console.log(this.activeChannel);
     this.channelId = channel.$key;
-    console.log(this.channelId);
   }
 }
