@@ -2,6 +2,15 @@
   padding-left: 10px;
 }
 
-.channels-list li {
+.cursor-list li {
   cursor: pointer;
+}
+
+.wrapper {
+  min-height: calc(100vh - 180px);
+  overflow-y: scroll;
+}
+
+.foot ul {
+  height: 100px;
 }

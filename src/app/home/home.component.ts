@@ -45,6 +45,7 @@ export class HomeComponent {
 
   selectNewChannel() {
     this.activeChannel = null;
+    this.channelId = '';
     this.newChannel = true;
   }
 
