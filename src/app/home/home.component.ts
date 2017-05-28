@@ -17,20 +17,13 @@ export class HomeComponent {
   public channelId;
 
   constructor(private afService: AngularFire) {
-     this.afService.afAuth.authState.subscribe(
+    this.afService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
           console.log('Not logged in');
           this.isLoggedIn = false;
         } else {
           console.log('Logged in');
-          if (auth.displayName) {
-            this.afService.displayName = auth.displayName;
-            this.afService.email = auth.email;
-          } else {
-            this.afService.displayName = auth.email;
-            this.afService.email = auth.email;
-          }
           this.isLoggedIn = true;
         }
       }

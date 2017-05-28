@@ -3,6 +3,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/finnzeit/instant.svg)](https://github.com/finnzeit/instant/)
 [![Build Status](https://travis-ci.org/finnzeit/instant.svg?branch=master)](https://travis-ci.org/finnzeit/instant)
+[![codebeat badge](https://codebeat.co/badges/1b33c26b-9165-454f-b3df-dbe4dfb56c9e)](https://codebeat.co/projects/github-com-finnzeit-instant-master)
 
 Try out at [finnzeit.github.io/instant](https://finnzeit.github.io/instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
 
