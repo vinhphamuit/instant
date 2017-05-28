@@ -10,7 +10,7 @@ Try out at [finnzeit.github.io/ng-instant](https://finnzeit.github.io/ng-instant
 - Create, login with an account
 - Sign in with Facebook account
 - Send text messages, photos and files in realtime
-- Create channel for multiple topics
+- Create channels for multiple topics
 
 ## Team members
 - Nguyễn  Vũ Quốc Thiện
