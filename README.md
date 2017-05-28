@@ -9,7 +9,8 @@ Try out at [finnzeit.github.io/ng-instant](https://finnzeit.github.io/ng-instant
 ## Current features
 - Create, login with an account
 - Sign in with Facebook account
-- Send text message, photo and file in realtime
+- Send text messages, photos and files in realtime
+- Create channel for multiple topics
 
 ## Team members
 - Nguyễn  Vũ Quốc Thiện
