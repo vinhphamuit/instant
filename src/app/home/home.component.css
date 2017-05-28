@@ -1,16 +1,16 @@
-.container {
-  padding: 60px 0;
+#sidebar {
+  padding-left: 10px;
 }
 
-footer {
-    background-color: #F8F8F8;
-    border-top: 1px solid #E7E7E7;
-    text-align:center;
-    padding: 10px;
-  
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 60px;
-    width: 100%;
+.cursor-list li {
+  cursor: pointer;
+}
+
+.wrapper {
+  min-height: calc(100vh - 180px);
+  overflow-y: scroll;
+}
+
+.foot ul {
+  height: 100px;
 }

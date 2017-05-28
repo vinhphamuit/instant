@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 
-import { NgFire } from '../shared';
+import { AngularFire } from '../shared';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-home',
@@ -8,29 +9,49 @@ import { NgFire } from '../shared';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
-  public newMessage: string;
-  public newImage: any;
+export class HomeComponent {
+  public isLoggedIn: boolean;
+  public newChannel = false;
+  public channels: FirebaseListObservable<any>;
+  public activeChannel;
+  public channelId;
 
-  constructor(public afService: NgFire) {  }
-
-  ngOnInit() {
-  }
-
-  sendMessage() {
-    this.afService.sendMessage(this.newMessage);
-    this.newMessage = '';
-  }
-
-  onSelectFile(event) {
-    if (event.target && event.target.files && event.target.files.length) {
-      const file = event.target.files[0] as File;
-      console.log(file);
-      if (file.type.match('image.*')) {
-        this.afService.sendImage(file);
-      } else {
-        this.afService.sendFile(file);
+  constructor(private afService: AngularFire) {
+     this.afService.afAuth.authState.subscribe(
+      (auth) => {
+        if (auth == null) {
+          console.log('Not logged in');
+          this.isLoggedIn = false;
+        } else {
+          console.log('Logged in');
+          if (auth.displayName) {
+            this.afService.displayName = auth.displayName;
+            this.afService.email = auth.email;
+          } else {
+            this.afService.displayName = auth.email;
+            this.afService.email = auth.email;
+          }
+          this.isLoggedIn = true;
+        }
       }
-    }
+    );
+
+    this.channels = afService.channels;
+  }
+
+  logout() {
+    this.afService.logout();
+  }
+
+  selectNewChannel() {
+    this.activeChannel = null;
+    this.channelId = '';
+    this.newChannel = true;
+  }
+
+  selectChannel(channel) {
+    this.activeChannel = channel;
+    this.newChannel = false;
+    this.channelId = channel.$key;
   }
 }

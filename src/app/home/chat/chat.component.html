@@ -14,3 +14,28 @@
   </div>
   
 </div>
+<footer>
+  <div class="col-md-10 offset-md-1">
+    <span class="text-muted">
+      <div class="input-group">
+        
+        <input type="textarea" class="form-control" placeholder="Nhập nội dung chat..."
+          [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+
+        <input id="fileCapture"
+            [(ngModel)]="newImage" #fileCapture (change)="onSelectFile($event)" type="file" style="display: none;">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button" (click)="fileCapture.click()" id="submitFile">
+            <i class="fa fa-paperclip" aria-hidden="true" title="Gửi hình ảnh hoặc file"></i>
+          </button>
+        </span>
+
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" (click)="sendMessage()" type="button" [disabled]="!newMessage">
+            <i class="fa fa-paper-plane" aria-hidden="true" title="Gửi"></i>
+          </button>
+        </span>
+      </div>
+    </span>
+  </div>
+</footer>

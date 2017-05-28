@@ -1,15 +1,16 @@
 .bs-example {
   position: relative;
   padding: 15px 15px 15px;
-  margin: 0 -15px 0px;
+  margin: 0 -15px 5px;
   border-style: none;
   background-color: white;
-  height: 80vh;
+  height: 79vh;
   overflow-y: scroll;
 }
 #messages {
   background-color: white !important;
 }
+
 .author {
   font-size: 12px;
   opacity: 0.7;
@@ -41,7 +42,7 @@ p {
 .you {
   background-color: #f5f5f5;
   display: inherit;
-  margin: 10px 45px 5px 20px;
+  margin: 10px 15vw 5px 4vw;
 }
 .you::before {
   background-color: #f5f5f5;
@@ -50,7 +51,7 @@ p {
 .me {
   background-color: #b0e8b0;
   display: inherit;
-  margin: 10px 20px 5px 45px;
+  margin: 10px 4vw 5px 15vw;
 }
 .me::before {
   background-color: #b0e8b0;

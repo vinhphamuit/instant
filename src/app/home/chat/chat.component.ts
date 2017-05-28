@@ -1,24 +1,44 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+
+import { Component, AfterViewChecked, ElementRef, ViewChild, Input, OnChanges } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 
-import { NgFire } from '../../shared';
+import { AngularFire } from '../../shared';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, AfterViewChecked {
+export class ChatComponent implements AfterViewChecked, OnChanges {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @Input() channelId;
 
   public messages: FirebaseListObservable<any>;
   imageSrc: string;
+  public newMessage: string;
+  public newImage: any;
 
-  constructor(public afService: NgFire) {
-    this.messages = afService.messages;
+  constructor(public afService: AngularFire) {}
+
+  ngOnChanges() {
+    this.messages = this.afService.getMessages(this.channelId);
   }
 
-  ngOnInit() {
+  sendMessage() {
+    this.afService.sendMessage(this.channelId, this.newMessage);
+    this.newMessage = '';
+  }
+
+  onSelectFile(event) {
+    if (event.target && event.target.files && event.target.files.length) {
+      const file = event.target.files[0] as File;
+      console.log(file);
+      if (file.type.match('image.*')) {
+        this.afService.sendImage(this.channelId, file);
+      } else {
+        this.afService.sendFile(this.channelId, file);
+      }
+    }
   }
 
   ngAfterViewChecked() {

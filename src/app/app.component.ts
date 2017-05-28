@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { NgFire } from './shared';
+import { AngularFire } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent {
   public isLoggedIn: boolean;
   public isCollapsed = true;
 
-  constructor(public afService: NgFire, private router: Router) {
+  constructor(public afService: AngularFire, private router: Router) {
     // console.log(afService);
     // Asynchronously check if user is logged in
     this.afService.afAuth.authState.subscribe(

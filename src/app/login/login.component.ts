@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NgFire } from '../shared';
+import { AngularFire } from '../shared';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { NgFire } from '../shared';
 export class LoginComponent {
   public error: any;
 
-  constructor(public afService: NgFire, private router: Router) {}
+  constructor(public afService: AngularFire, private router: Router) {}
 
   loginWithFacebook() {
     this.afService.loginWithFacebook().then((data) => {
