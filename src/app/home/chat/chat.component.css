@@ -1,10 +1,10 @@
 .bs-example {
   position: relative;
   padding: 15px 15px 15px;
-  margin: 0 -15px 5px;
+  margin: 0 0 10px;
   border-style: none;
   background-color: white;
-  height: 79vh;
+  height: calc(100vh - 140px);
   overflow-y: scroll;
 }
 #messages {
