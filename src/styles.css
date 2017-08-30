@@ -1,15 +1,6 @@
-body, html {
-  height:100%;
-}
-
 /* workaround modal-open padding issue */
 body.modal-open {
     padding-right:0 !important;
-}
-
-
-#sidebar {
-   padding-left:0;
 }
 
 /*

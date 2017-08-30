@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 
 import { AngularFire } from '../shared';
 import { FirebaseListObservable } from 'angularfire2/database';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-home',
@@ -13,23 +14,22 @@ export class HomeComponent {
   public isLoggedIn: boolean;
   public newChannel = false;
   public channels: FirebaseListObservable<any>;
-  public activeChannel;
-  public channelId;
+  public channelId: string;
 
   constructor(private afService: AngularFire) {
     this.afService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
-          console.log('Not logged in');
           this.isLoggedIn = false;
         } else {
-          console.log('Logged in');
           this.isLoggedIn = true;
         }
       }
     );
-
+    
     this.channels = afService.channels;
+    this.afService.defaultChannelId.subscribe(value => this.channelId = value);
+    console.log(`This: ${this.channelId}`);
   }
 
   logout() {
@@ -37,13 +37,11 @@ export class HomeComponent {
   }
 
   selectNewChannel() {
-    this.activeChannel = null;
     this.channelId = '';
     this.newChannel = true;
   }
 
   selectChannel(channel) {
-    this.activeChannel = channel;
     this.newChannel = false;
     this.channelId = channel.$key;
   }

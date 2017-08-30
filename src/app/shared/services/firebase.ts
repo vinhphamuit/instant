@@ -20,6 +20,7 @@ export class AngularFire {
   public email: string;
   public imageUrl: string;
   public user: FirebaseObjectObservable<any>;
+  public defaultChannelId: ReplaySubject<any> = new ReplaySubject(1);
   channelId;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
@@ -32,6 +33,14 @@ export class AngularFire {
 
     this.channels = this.db.list('channels');
     this.users = this.db.list('users');
+    this.db.list('channels', {
+      query: {
+          limitToFirst: 1
+      }
+    }).subscribe(items => {
+      console.log(items[0].$key);
+      this.defaultChannelId.next(items[0].$key);
+    });
   }
 
   getMessages(channel): FirebaseListObservable<any> {

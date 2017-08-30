@@ -1,16 +1,61 @@
-#sidebar {
-  padding-left: 10px;
+body {
+  padding-top: 3.5rem;
 }
 
-.cursor-list li {
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  background: #999999;
+  border-right: 1px solid #eee;
+}
+
+.cursor-list li:hover, a:hover {
   cursor: pointer;
 }
 
 .wrapper {
-  min-height: calc(100vh - 180px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.foot ul {
-  height: 100px;
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+main {
+  top: 51px;
+}
+
+.sidebar-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1030;
 }

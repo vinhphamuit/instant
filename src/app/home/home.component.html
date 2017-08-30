@@ -1,43 +1,49 @@
-<nav class="navbar navbar-fixed-top navbar-toggleable-sm navbar-light bg-faded mb-3">
-    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="offcanvas" title="Toggle responsive left sidebar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="flex-row d-flex">
-      <a class="navbar-brand mb-1" href="#">INSTANT</a>
-    </div>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-secondary">
+  <a class="navbar-brand" href="/">INSTANT</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="offcanvas" title="Toggle responsive left sidebar">
+    <span class="navbar-toggler-icon"></span>
+  </button> 
 </nav>
-<div class="container-fluid" id="main">
+<div class="container-fluid">
   <div class="row row-offcanvas row-offcanvas-left">
-    <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
-      <div class="wrapper">
-        <ul class="list-group flex-column pl-1 cursor-list">
-          <li class="list-group-item list-group-item-action"
-            *ngFor="let channel of channels | async"
-            (click)="selectChannel(channel)"
-            [class.active]="channel == activeChannel">
-            {{ channel.name }}
-          </li>
-        </ul>
+    <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" id="sidebar" role="navigation">
+        <div class="wrapper">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item"
+              *ngFor="let channel of channels | async">
+              <a class="nav-link" aria-expanded="true"
+                (click)="selectChannel(channel)"
+                [class.active]="channel.$key == channelId">
+                {{ channel.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-bottom">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" aria-expanded="true" [class.active]="newChannel"
+                (click)="selectNewChannel()">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tạo phòng
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-expanded="true"
+                *ngIf="isLoggedIn" (click)="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Đăng xuất
+              </a>
+            </li>
+          </ul>
       </div>
+    </nav>
 
-      <ul class="list-group flex-column pl-1 cursor-list foot">
-        <li class="list-group-item list-group-item-action" [class.active]="newChannel"
-          (click)="selectNewChannel()">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tạo phòng
-        </li>
-        <li class="list-group-item list-group-item-action list-group-item-warning"
-          *ngIf="isLoggedIn" (click)="logout()">
-          <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Đăng xuất
-        </li>
-      </ul>
-    </div>
-
-    <div class="col-md-9 col-lg-10 main">
-        <h1 class="display-2 hidden-xs-down">
-        <!-- Room title -->
-        </h1>
-        <app-new-channel *ngIf="newChannel" [newChannel]="newChannel"></app-new-channel>
-        <app-chat *ngIf="channelId" [channelId]="channelId"></app-chat>
-    </div>
-    </div>
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+      <h1 class="display-2 hidden-xs-down">
+      <!-- Room title -->
+      </h1>
+      <app-new-channel *ngIf="newChannel" [newChannel]="newChannel"></app-new-channel>
+      <app-chat *ngIf="channelId" [channelId]="channelId"></app-chat>
+    </main>
+  </div>
 </div>
