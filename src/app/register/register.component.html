@@ -5,41 +5,41 @@
   
   <div class="row justify-content-center">
     <div class="col-sm-4">
-      <div class="card">
-        <div class="card-block">
-          <h2 class="text-center">Đăng ký</h2><br>
+      <div class="card border-light mb-3">
+        <div class="card-body">
+          <h4 class="card-title text-center">Sign up</h4><br>
 
           <form class="form-signin" role="form" (submit)="register($event, name.value, email.value, password.value)">
             <div class="form-group row">
-              <label for="name" class="sr-only">Tên</label>
+              <label for="name" class="sr-only">Your name</label>
               <div class="col-sm-12">
-                <input #name type="text" id="name" class="form-control" placeholder="Tên" required="">
+                <input #name type="text" id="name" class="form-control" placeholder="Your name" required="">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="email" class="sr-only">Email</label>
               <div class="col-sm-12">
-                <input #email type="email" id="email" class="form-control" placeholder="Địa chỉ email" required="" autofocus="">
+                <input #email type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="inputPassword" class="sr-only">Mật khẩu</label>
+              <label for="inputPassword" class="sr-only">Password</label>
               <div class="col-sm-12">
-                <input #password type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required="">
+                <input #password type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
               </div>
             </div>
 
             <div class="form-group row">
               <div class="col-sm-12">
-                <button class="btn btn-outline-primary btn-block" type="submit">Đăng ký</button>
+                <button class="btn btn-outline-primary btn-block" type="submit">Sign up</button>
               </div>
             </div>
           </form>
           <hr>
           <button class="btn btn-link btn-block" [routerLink]="['/login']" style="cursor: pointer;">
-            < Trở lại Đăng nhập
+            < Back to Sign in
           </button>
         </div>
       </div>

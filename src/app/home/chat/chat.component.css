@@ -1,11 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .bs-example {
-  position: relative;
+  flex: 1;
   padding: 15px 15px 15px;
-  margin: 0 0 10px;
   border-style: none;
   background-color: white;
-  height: calc(100vh - 140px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #messages {
   background-color: white !important;
@@ -61,4 +65,8 @@ p {
   margin: 0px -15px 15px;
   border-width: 0 0 1px;
   border-radius: 0;
+}
+
+.main-bottom {
+  margin: 0.7rem 0 1.5rem 0;
 }

@@ -1,5 +1,9 @@
-body {
+.body {
   padding-top: 3.5rem;
+}
+
+.container-fluid {
+  bottom: 0;
 }
 
 .sidebar {
@@ -49,7 +53,10 @@ body {
  */
 
 main {
+  position: fixed;
   top: 51px;
+  right: 0;
+  bottom: 0;
 }
 
 .sidebar-bottom {

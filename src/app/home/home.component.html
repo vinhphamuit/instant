@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button> 
 </nav>
-<div class="container-fluid">
+<div class="container-fluid body">
   <div class="row row-offcanvas row-offcanvas-left">
     <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" id="sidebar" role="navigation">
         <div class="wrapper">
@@ -25,20 +25,20 @@
             <li class="nav-item">
               <a class="nav-link" aria-expanded="true" [class.active]="newChannel"
                 (click)="selectNewChannel()">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tạo phòng
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Create channel
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-expanded="true"
                 *ngIf="isLoggedIn" (click)="logout()">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Đăng xuất
+                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out
               </a>
             </li>
           </ul>
       </div>
     </nav>
 
-    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-2" role="main">
       <h1 class="display-2 hidden-xs-down">
       <!-- Room title -->
       </h1>
