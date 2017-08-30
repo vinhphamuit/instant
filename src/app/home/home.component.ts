@@ -13,6 +13,7 @@ import 'rxjs/add/operator/filter';
 export class HomeComponent {
   public isLoggedIn: boolean;
   public newChannel = false;
+  public toggleSidebar: boolean = false;
   public channels: FirebaseListObservable<any>;
   public channelId: string;
 

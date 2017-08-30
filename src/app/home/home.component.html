@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-secondary">
   <a class="navbar-brand" href="/">INSTANT</a>
-  <button class="navbar-toggler d-lg-none" type="button" data-toggle="offcanvas" title="Toggle responsive left sidebar">
+  <button class="navbar-toggler d-lg-none"
+    type="button" data-toggle="offcanvas" title="Toggle responsive left sidebar"
+    (click)="toggleSidebar = !toggleSidebar">
     <span class="navbar-toggler-icon"></span>
   </button> 
 </nav>
 <div class="container-fluid body">
-  <div class="row row-offcanvas row-offcanvas-left">
+  <div class="row row-offcanvas row-offcanvas-left" [class.active]="toggleSidebar">
     <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" id="sidebar" role="navigation">
         <div class="wrapper">
           <ul class="nav nav-pills flex-column">
