@@ -29,7 +29,6 @@ export class HomeComponent {
     
     this.channels = afService.channels;
     this.afService.defaultChannelId.subscribe(value => this.channelId = value);
-    console.log(`This: ${this.channelId}`);
   }
 
   logout() {

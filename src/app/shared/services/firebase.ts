@@ -38,7 +38,6 @@ export class AngularFire {
           limitToFirst: 1
       }
     }).subscribe(items => {
-      console.log(items[0].$key);
       this.defaultChannelId.next(items[0].$key);
     });
   }
@@ -90,40 +89,37 @@ export class AngularFire {
     this.db.list('channelMessages/' + channel).push(message);
   }
 
-  sendImage(channel, file: File) {
-    const storageRef = firebase.storage().ref();
-    let uploadTask: firebase.storage.UploadTask;
-    uploadTask = storageRef.child('images/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
-
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
-      console.error('There was an error uploading file to Firebase Storage: ', error);
-    }, () => {
-      const url = uploadTask.snapshot.downloadURL;
-      this.saveFile(channel, {
-        displayName: this.displayName,
-        email: this.email,
-        imageUrl: url,
-        timestamp: Date.now(),
-      });
-    });
-  }
-
   sendFile(channel, file: File) {
+    let propName: String;
     const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
-    uploadTask = storageRef.child('files/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
-
+    if (file.type.match('image.*')) {
+      propName = 'imageUrl';
+      uploadTask = storageRef.child('images/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
+    } else {
+      propName = 'fileUrl';
+      uploadTask = storageRef.child('files/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
+    }
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
       const url = uploadTask.snapshot.downloadURL;
-      this.saveFile(channel, {
-        displayName: this.displayName,
-        email: this.email,
-        fileName: file.name,
-        fileUrl: url,
-        timestamp: Date.now(),
-      });
+      if (file.type.match('image.*')) {
+        this.saveFile(channel, {
+          displayName: this.displayName,
+          email: this.email,
+          imageUrl: url,
+          timestamp: Date.now(),
+        });
+      } else {
+        this.saveFile(channel, {
+          displayName: this.displayName,
+          email: this.email,
+          fileName: file.name,
+          fileUrl: url,
+          timestamp: Date.now(),
+        });
+      }
     });
   }
 

@@ -33,11 +33,7 @@ export class ChatComponent implements AfterViewChecked, OnChanges {
     if (event.target && event.target.files && event.target.files.length) {
       const file = event.target.files[0] as File;
       console.log(file);
-      if (file.type.match('image.*')) {
-        this.afService.sendImage(this.channelId, file);
-      } else {
-        this.afService.sendFile(this.channelId, file);
-      }
+      this.afService.sendFile(this.channelId, file)
     }
   }
 

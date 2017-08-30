@@ -4,18 +4,13 @@
 [![Build Status](https://travis-ci.org/finnzeit/instant.svg?branch=master)](https://travis-ci.org/finnzeit/instant)
 [![codebeat badge](https://codebeat.co/badges/1b33c26b-9165-454f-b3df-dbe4dfb56c9e)](https://codebeat.co/projects/github-com-finnzeit-instant-master)
 
-Try out at [finnzeit.github.io/instant](https://finnzeit.github.io/instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
+Try out at [zeit.js.org/instant](https://zeit.js.org/instant/) or [https://instant-4cf24.firebaseapp.com](https://instant-4cf24.firebaseapp.com) 
 
 ## Current features
 - Create, login with an account
 - Sign in with Facebook account
 - Send text messages, photos and files in realtime
 - Create channels for multiple topics
-
-## Team members
-- Nguyễn  Vũ Quốc Thiện
-- Dư Cao Tiến
-- Phạm Trọng Vinh
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
