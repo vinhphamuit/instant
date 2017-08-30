@@ -94,12 +94,12 @@ export class AngularFire {
     const storageRef = firebase.storage().ref();
     let uploadTask: firebase.storage.UploadTask;
     if (file.type.match('image.*')) {
-      propName = 'imageUrl';
-      uploadTask = storageRef.child('images/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
+      propName = 'images/';
+      
     } else {
-      propName = 'fileUrl';
-      uploadTask = storageRef.child('files/' + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
+      propName = 'files/';
     }
+    uploadTask = storageRef.child(propName + this.afAuth.auth.currentUser.uid + '/' + Date.now() + '/' + file.name).put(file);
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (error) => {
       console.error('There was an error uploading file to Firebase Storage: ', error);
     }, () => {
