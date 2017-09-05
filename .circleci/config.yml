@@ -16,24 +16,10 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  
-  deploy:
-    machine:
-      enabled: true
-
-    steps:
-     - run: ng build --prod --base-href "https://zeit.js.org/instant/"
-     - run: ngh --repo=https://GH_TOKEN@github.com/finnzeit/instant.git --name="finnzeit" --email=finnzeit@gmail.com
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
       - deploy:
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
-    
+        name: "Deploy to GitHub Pages"
+        commands: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            ng build --prod --base-href "https://zeit.js.org/instant/"
+            ngh --repo=https://GH_TOKEN@github.com/finnzeit/instant.git --name="finnzeit" --email=finnzeit@gmail.com
+          fi
