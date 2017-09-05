@@ -18,7 +18,7 @@ jobs:
             - node_modules
       - deploy:
         name: "Deploy to GitHub Pages"
-        commands: |
+        command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
             ng build --prod --base-href "https://zeit.js.org/instant/"
             ngh --repo=https://GH_TOKEN@github.com/finnzeit/instant.git --name="finnzeit" --email=finnzeit@gmail.com
