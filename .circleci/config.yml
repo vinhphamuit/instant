@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - checkout
+      - run: sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
       - run: npm install -g angular-cli-ghpages
       - run: npm install -g @angular/cli
       - restore_cache:
