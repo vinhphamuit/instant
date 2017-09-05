@@ -8,9 +8,7 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo npm install -g npm@latest
-      - run: npm install -g @angular/cli
-      - run: npm install -g angular-cli-ghpages
+      - run: sudo npm install -g angular-cli-ghpages
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
