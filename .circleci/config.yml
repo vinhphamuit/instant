@@ -2,8 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:8.4.0
+      - image: circleci/node:8.4.0
     
+    working_directory: ~/instant
+
     steps:
       - checkout
       - run: npm install -g npm@latest
