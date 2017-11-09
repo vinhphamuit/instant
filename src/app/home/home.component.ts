@@ -13,7 +13,7 @@ import 'rxjs/add/operator/filter';
 export class HomeComponent {
   public isLoggedIn: boolean;
   public newChannel = false;
-  public toggleSidebar: boolean = false;
+  public toggleSidebar = false;
   public channels: FirebaseListObservable<any>;
   public channelId: string;
 
@@ -27,7 +27,7 @@ export class HomeComponent {
         }
       }
     );
-    
+
     this.channels = afService.channels;
     this.afService.defaultChannelId.subscribe(value => this.channelId = value);
   }
